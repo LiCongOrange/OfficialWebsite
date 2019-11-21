@@ -1,0 +1,56 @@
+<style type="text/css">
+    .section-guestbook {
+        background: #c2c9cd;
+    }
+</style>
+<div class="section section-guestbook">
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p class="lead">{$desc}</p>
+            <div class="alert alert-success hidden" id="MessageSent">
+                {$messagesent}
+            </div>
+            <div class="contact-form">
+                <form id="guestbook-form" class="no-mar" role="form">
+                    <div class="form-group sy-guestbook">
+                        <label for="name">姓名<span class="require-item">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="">
+                        <i class="fa fa-user form-control-guestbook"></i>
+                    </div>
+                    <input id="guestbook-submit" value="提交" class="submit-button btn btn-default">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="__STATIC__/js/layer/layer.js"></script>
+<script src="__STATIC__/js/ajaxForm.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#guestbook-submit').click(function () {
+            $('#guestbook-form').ajaxSubmit({
+                url: "{:cmf_plugin_url('guestbook://Index/addMsg')}",
+                type: "post",
+                success: function (data) {
+                //data.code为1代表成功，为0代表失败(cmf固有ajax返回值)
+                    if (data.code == 0) {
+                        layer.msg(data.msg);
+                    } else {
+                        $('#MessageSent').removeClass("hidden");
+                        layer.msg(data.msg, function () {
+                            setTimeout(function () {
+                                parent.location.reload();
+                            }, 300);
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

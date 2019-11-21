@@ -1,0 +1,83 @@
+	*{margin:0;padding: 0}
+	img{max-width: 100%}
+	a{text-decoration: none;}
+	ul,li{list-style: none;}
+		html{font-size: 100px;font-family: "微软雅黑"}
+		body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
+}		.box{padding-bottom: 1.5rem}
+		.head{height: 0.48rem;width: 100%;padding: 0.2rem 0;background: white}
+		.head_logo{height: 0.6rem;margin:0 auto;display: block;}
+		.video_box{width: 100%;height:auto;margin:0px auto;position: relative;
+		background-size: contain; }
+		.video_play{position: fixed;z-index: 9999;background: rgba(0,0,0,.8);top:0;left: 0;right: 0;bottom: 0;display: none;text-align: center;padding-top: 4%}
+		.video_close{position: absolute;right:2.5%;top:3%;width: 30px;cursor: pointer;z-index: 999999;transition: all .5s;}
+		.video_close:hover img{opacity: .8}
+		.video_play video{position: relative;z-index: 2}
+		.play_btn{width: 100%;height: 100%;background-color: rgba(255,255,255,.2);text-align: center;line-height:1;background-image: url(../images/play.png);background-position: center;background-repeat: no-repeat;cursor: pointer;transition: all .8s;position: absolute;left: 0;top:0;right: 0;bottom: 0;z-index: 99}
+		.play_btn img{vertical-align: middle;display: inline-block;}
+		.swiper-container{
+		   width: 100%;
+		   height: 100%;
+		} 
+		.row_b1{padding: 0 0.15rem;text-align: center;}
+		.row_title{padding: 0.4rem 0}
+		.row_title_b{font-size:0.3rem;color:#323232;font-weight: bold;}
+        .row_title_s{color: #9A9A9A;font-size: 0.18rem;line-height: 0.3rem}
+		 .row_title span{
+            display: block;     /*设置为块级元素会独占一行形成上下居中的效果*/
+            font-size: 0.5rem;
+            color: #212121;
+            position: relative;   /*定位横线（当横线的父元素）*/
+            text-align: center;
+            color: #00bfc3;
+            height: 0.3rem;
+            line-height: 0.3rem
+        }  
+        .row_title span:before,.row_title span:after {
+            content: '';                 /*CSS伪类用法*/
+            position: absolute;         /*定位背景横线的位置*/
+            top: 52%;
+            background: #DEDEDE;       /*宽和高做出来的背景横线*/
+            width: 15%;
+            height: 2px;
+        }
+        .row_title span:before{
+            left: 28%;        /*调整背景横线的左右距离*/
+        }
+        .row_title span:after {
+            right: 28%;
+        }
+        .row_con{width: 100%;height: auto;overflow: hidden;padding-bottom: 0.5rem}
+        .row_pro li{width: 49.4%;float: left;border:1px solid #DEDEDE;}
+        .row_pro li .li_title{font-size: 0.26rem;color: #333;}
+        .row_pro li:nth-child(even){border-left:0;}
+        .li_jian{color: #999999;font-size: 0.21rem;text-align: left;display: block;width: 90%;margin:0.2rem auto;}
+        .see_more{display: block;width:1.8rem;height: 0.5rem;line-height: 0.5rem;background:#00bfc3;color: white;text-align: center;margin:0 auto;
+            margin-bottom: 0.2rem;border-radius: 5px;font-size:0.21rem   }
+        .li_icon{display: block;margin:0.2rem auto;height: 0.5rem }
+        .row_you li{width: 100%;height:1.1rem;border-radius: 5px;padding-top: 0.4rem;margin-bottom: 0.15rem }
+        .row_you li img{float: left;margin: 0 0.6rem }
+        .row_you li:nth-child(1){background: url(../images/tuyi@2x.png) 0 0 no-repeat;background-size: cover;}
+        .row_you li:nth-child(2){background: url(../images/tuer@2x.png) 0 0 no-repeat;background-size: cover;}
+        .row_you li:nth-child(3){background: url(../images/tusan@2x.png) 0 0 no-repeat;background-size: cover;}
+        .row_you li:nth-child(4){background: url(../images/tusi@2x.png) 0 0 no-repeat;background-size: cover;}
+        .imgleft{width: 0.8rem}
+        .right_dome{float: right;width: 50%;color: white;text-align: left;}
+        .right_dome p{font-size: 0.25rem;color: white;line-height: 0.3rem;margin-bottom: 0.1rem}
+        .right_dome span{font-size: 0.22rem;color: #E3E3E3}
+        .you_more{display: block;width:2.25rem;height: 0.7rem;background:#00bfc3;color: white;text-align: center;line-height: 0.7rem;margin:0 auto;border-radius: 5px;margin-top: 0.5rem }
+        .row_about{text-align: left;margin-bottom:0.5rem }
+        .row_about .about_title{color: #333333;font-size:0.25rem;text-align: center;line-height: 0.5rem }
+        .row_about p{color:#323232;font-size: 0.24rem;text-indent: 0.48rem;line-height: 0.4rem;}
+        .bot_bei{color: #9A9A9A;font-size: 0.16rem; }
+        .footer_nav{position: fixed;bottom: 0;left: 0;width: 100%;background: white;border-top:1px solid #DEDEDE;padding: 0.2rem 0 0.1rem 0}
+        .footer_nav li{width: 25%;text-align: center;float: left;}
+        .footer_nav li a{color:#999999 }
+        .footer_nav li a.active{color: #333}
+        .footer_nav li img{display: block;height:0.45rem;margin:0 auto;margin-bottom: 0.1rem;}
+        .pro_list{margin-bottom:0.5rem;text-align: left;padding:0 0.15rem;padding-top: 0.4rem }
+        .pro_title{font-size: 0.3rem;color: black;line-height: 0.3rem;font-weight: bold;}
+        .pro_list img{display: block;margin:0.3rem auto;width: 70%}
+        .pro_list p{color: #333333;font-size: 0.24rem;text-indent: 0.48rem;line-height: 0.4rem}
+        .x_hr{height:0.2rem;background: #F4F4F4;border:none; }

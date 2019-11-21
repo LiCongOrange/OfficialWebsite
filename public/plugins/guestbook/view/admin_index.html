@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="shortcut icon" href="__PLUGIN_TMPL__/public/assets/images/favicon.ico" type="image/x-icon">
+
+    <link href="__ADMIN_TMPL__/public/assets/themes/{:cmf_get_admin_style()}/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADMIN_TMPL__/public/assets/simpleboot3/css/simplebootadmin.css" rel="stylesheet">
+    <link href="__STATIC__/font-awesome/css/font-awesome.min.css?page=index" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        //全局变量
+        var GV = {
+            ROOT: "__ROOT__/",
+            WEB_ROOT: "__WEB_ROOT__/",
+            JS_ROOT: "static/js/"
+        };
+    </script>
+    <title>留言板后台管理</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a>留言板管理</a></li>
+    </ul>
+    <div class="common-form">
+        <form method="post" class="js-ajax-form" action="#">
+            <div class="table_list">
+                <table width="100%" class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th width="50">ID</th>
+                        <th width="100">姓名</th>
+                        <th width="130">时间</th>
+                        <th width="100">状态</th>
+                        <th width="120">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="guestbook" item="vo">
+                        <tr>
+                            <td>{$vo.id}</td>
+                            <td>{$vo.name}</td>
+                            <td>{:date('Y-m-d H:i',$vo['create_time'])}</td>
+                            <td><if condition="$vo['isread']==2">已查看<else/>未查看</if></td>
+                            <td>
+                                <a href="javascript:parent.openIframeLayer('{:cmf_plugin_url('Guestbook://AdminIndex/detail',['id'=>$vo['id']])}','{$vo.name}的留言详细信息',{area:['60%','70%'],end:function(){location.reload()}});">查看</a> |
+                                <a href="{:cmf_plugin_url('Guestbook://AdminIndex/delete',['id'=>$vo['id']])};" class="js-ajax-delete">删除</a>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                </table>
+                <div class="pagination">{$page}</div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="__STATIC__/js/jquery.js"></script>
+<script src="__STATIC__/js/wind.js"></script>
+<script src="__STATIC__/js/bootstrap.min.js"></script>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
